@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext} from 'react'
+import { FormContext } from '../context/FormContext'
+import classNames from 'classnames'
 
 
-const AddOns = ({page , setPage, HandleNext, HandlePrev}) => {
+const AddOns = () => {
+  const { HandleNext, HandlePrev, period, addons, HandleCheckBox1, HandleCheckBox2, HandleCheckBox3,CheckBoxRef1, CheckBoxRef2,CheckBoxRef3, onlinechecked,storagechecked,customizechecked} = useContext(FormContext)
+
+
   return (
     <>
       <div className='  bg-White  flex flex-col  items-center w-[21.438rem] h-auto pb-8 px-[1.625rem] pt-9 rounded-lg lg:w-[39.875rem] lg:h-[35.438rem] lg:pt-12 lg:px-12'>
@@ -10,10 +15,12 @@ const AddOns = ({page , setPage, HandleNext, HandlePrev}) => {
           <p className=' text-Coolgray'>Addons help enhance gaming experience</p>
         </div>
         <div className='flex flex-col gap-3'>
-          <div className=' flex flex-row  items-start justify-center p-[0.938rem] rounded-md border-[0.063rem] border-Coolgray lg:w-[28rem]'>
-            <div className=' flex flex-row items-center justify-start gap-4 w-full'>
+          <div className={classNames(' flex flex-row  items-start justify-center p-[0.938rem] rounded-md border-[0.063rem] border-Coolgray lg:w-[28rem] cursor-pointer',
+          {'bg-Lightblue border-Purplishblue' : onlinechecked}
+          )} onClick={HandleCheckBox1}>
+            <div className=' flex flex-row items-center justify-start gap-4 w-full '>
               <label htmlFor="check">
-                <input type="checkbox" name="check" id="check" className=' h-5 w-5 rounded-sm' />
+                <input ref={CheckBoxRef1} type="checkbox" name="check" id="check" className=' h-5 w-5 rounded-sm' />
               </label>
               <div className=' flex flex-col items-start '>
                 <p className=' text-Marineblue font-bold'>Online Services</p>
@@ -21,13 +28,15 @@ const AddOns = ({page , setPage, HandleNext, HandlePrev}) => {
               </div>
             </div>
             <div className=' flex h-full items-center text-Purplishblue'>
-              +$10/yr
+              +${addons.online}/{period}
             </div>
           </div>
-          <div className=' flex flex-row  items-start justify-center p-[0.938rem] rounded-md border-[0.063rem] border-Coolgray lg:w-[28rem]'>
+          <div className={classNames(' flex flex-row  items-start justify-center p-[0.938rem] rounded-md border-[0.063rem] border-Coolgray lg:w-[28rem] cursor-pointer',
+          {'bg-Lightblue border-Purplishblue' : storagechecked}
+          )} onClick={HandleCheckBox2} >
             <div className=' flex flex-row items-center justify-start gap-4 w-full'>
               <label htmlFor="check">
-                <input type="checkbox" name="check" id="check" className=' h-5 w-5 rounded-sm' />
+                <input ref={CheckBoxRef2} type="checkbox" name="check" id="check" className=' h-5 w-5 rounded-sm' />
               </label>
               <div className=' flex flex-col items-start '>
                 <p className=' text-Marineblue font-bold'>Larger storage</p>
@@ -35,13 +44,15 @@ const AddOns = ({page , setPage, HandleNext, HandlePrev}) => {
               </div>
             </div>
             <div className=' flex h-full items-center text-Purplishblue'>
-              +$20/yr
+              +${addons.storage}/{period}
             </div>
           </div>
-          <div className=' flex flex-row  items-start justify-center p-[0.938rem] rounded-md border-[0.063rem] border-Coolgray lg:w-[28rem]'>
+          <div className={classNames(' flex flex-row  items-start justify-center p-[0.938rem] rounded-md border-[0.063rem] border-Coolgray lg:w-[28rem] cursor-pointer',
+          {'bg-Lightblue border-Purplishblue' : customizechecked}
+          )} onClick={HandleCheckBox3}>
             <div className=' flex flex-row items-center justify-start gap-4 w-full'>
               <label htmlFor="check">
-                <input type="checkbox" name="check" id="check" className=' h-5 w-5 rounded-sm' />
+                <input ref={CheckBoxRef3} type="checkbox" name="check" id="check" className=' h-5 w-5 rounded-sm' />
               </label>
               <div className=' flex flex-col items-start '>
                 <p className=' text-Marineblue font-bold'>Customizable profile</p>
@@ -49,7 +60,7 @@ const AddOns = ({page , setPage, HandleNext, HandlePrev}) => {
               </div>
             </div>
             <div className=' flex h-full items-center text-Purplishblue'>
-              +$20/yr
+              +${addons.customize}/{period}
             </div>
           </div>
         </div>

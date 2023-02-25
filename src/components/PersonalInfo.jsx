@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { FormContext } from '../context/FormContext'
 
-
-const PersonalInfo = ({ formData, setFormData, HandleNext }) => {
+const PersonalInfo = () => {
     
-
+const {formData , setFormData, HandleNext} = useContext(FormContext)
 
     return (
         <form onSubmit={HandleNext}>
@@ -14,15 +14,15 @@ const PersonalInfo = ({ formData, setFormData, HandleNext }) => {
                 </div>
                 <div className='flex flex-col gap-[1.125rem] w-full lg:px-12 '>
                     <div className=' flex flex-col gap-1'>
-                        <label>Name</label>
+                        <label className="after:content-['*'] after:ml-1 after:text-Strawberryred">Name</label>
                         <input type="text" placeholder='eg. Stephen King' value={formData.name} id='name' required onChange={(e) => { setFormData({...formData, name : e.target.value}) }} className=' border-[0.063rem] border-Coolgray py-3 px-4 font-bold focus:outline-Strawberryred focus:bg-White text-Marineblue' />
                     </div>
                     <div className=' flex flex-col gap-1'>
-                        <label>Email Address</label>
+                        <label className="after:content-['*'] after:ml-1 after:text-Strawberryred">Email Address</label>
                         <input type="email" placeholder='eg. stephenking@gmail.com' value={formData.email} id='email' required onChange={(e) => { setFormData({...formData, email : e.target.value}) }} className='  border-[0.063rem] border-Coolgray py-3 px-4 font-bold focus:outline-Strawberryred focus:bg-White text-Marineblue' />
                     </div>
                     <div className=' flex flex-col gap-1'>
-                        <label>Phone no.</label>
+                        <label className="after:content-['*'] after:ml-1 after:text-Strawberryred">Phone no.</label>
                         <input type="text" placeholder='eg. +254 723 456 789' id='phone' value={formData.phone} required onChange={(e) => { setFormData({...formData, phone : e.target.value}) }} className='border-[0.063rem] border-Coolgray py-3 px-4 font-bold focus:outline-Strawberryred focus:bg-White text-Marineblue' />
                     </div>
                 </div>

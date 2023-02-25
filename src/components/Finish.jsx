@@ -1,7 +1,10 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import { FormContext } from '../context/FormContext'
 
 
-const Finish = ({page , setPage, HandleNext, HandlePrev}) => {
+const Finish = () => {
+  const { HandleNext, HandlePrev} = useContext(FormContext)
+
   return (
     <>
       <div className='  bg-White  flex flex-col  items-center w-[21.438rem] h-auto pb-8 px-[1.625rem] pt-9 rounded-lg lg:w-[39.875rem] lg:h-[35.438rem] lg:pt-12 lg:px-12'>
