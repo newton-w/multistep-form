@@ -190,7 +190,7 @@ function App() {
     }
   }, [Toggle])
 
-// Determining the total amount with or without addons
+  // Determining the total amount with or without addons
   const [total, setTotal] = useState()
 
   useEffect(() => {
@@ -211,7 +211,7 @@ function App() {
     } else {
       setTotal(selected)
     }
-  }, [Toggle,isChecked1, isChecked2, isChecked3])
+  }, [Toggle, isChecked1, isChecked2, isChecked3])
 
   return (
 
@@ -224,8 +224,9 @@ function App() {
       isChecked1, isChecked2, isChecked3, HandleCheck1, HandleCheck2, HandleCheck3,
       plan, planPeriod, HandlePlan, page, total
     }}>
-
-      <Navigation PageDisplays={PageDisplays} page={page} />
+      <main>
+        <Navigation PageDisplays={PageDisplays} page={page} />
+      </main>
     </FormContext.Provider>
 
   )
