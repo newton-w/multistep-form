@@ -15,10 +15,10 @@ const Plan = () => {
 
         <>
             <motion.div
-             initial = {{opacity : 0}}
-             animate ={{ opacity : 1}}
-             transition ={{ duration : 0.5}}
-            className='  bg-White  flex flex-col  items-center w-[21.438rem] h-auto pb-8 px-[1.625rem] pt-9 rounded-lg lg:w-[39.875rem] lg:h-[35.438rem] lg:pt-12 lg:px-12'>
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className='  bg-White  flex flex-col  items-center w-[21.438rem] h-auto pb-8 px-[1.625rem] pt-9 rounded-lg lg:w-[39.875rem] lg:h-[35.438rem] lg:pt-12 lg:px-12'>
                 <div className=' flex flex-col gap-5 pb-7 lg:w-full lg:px-12'>
                     <h1 className=' font-bold text-Marineblue'>Select Your Plan</h1>
                     <p className=' text-Coolgray'>You have the option of monthly or yearly bill.</p>
@@ -71,10 +71,10 @@ const Plan = () => {
                     </div>
                 </div>
             </motion.div>
-            <div className='w-[21.438rem] flex flex-row items-center justify-center bg-Alabaster h-[4.5rem] bottom-0 cursor-pointer lg:relative  lg:bg-none lg:w-full lg:pb-8 lg:px-24'>
-                <div className=' flex items-center  w-full justify-between  '>
+            <div className='bottom-0 translate-y-[8rem]  w-full px-4 flex flex-row items-center justify-cente h-[4.5rem] cursor-pointer lg:translate-y-0 lg:relative  lg:bg-none lg:w-full lg:pb-8 lg:px-24'>
+                <div className=' my-6 flex items-center  w-full justify-between'>
                     <button className=' text-Coolgray ' onClick={HandlePrev}>Go back</button>
-                    <button className=' font-ubuntu  font-bold bg-Marineblue h-10 w-24 text-White flex items-center justify-center mr-4 rounded hover:bg-Purplishblue duration-300  lg:mr-0' onClick={HandleNext} >Next Step</button>
+                    <button className=' font-ubuntu  font-bold bg-Marineblue h-10 w-24 text-White flex items-center justify-center rounded hover:bg-Purplishblue duration-300  lg:mr-0' onClick={HandleNext}>Next Step</button>
                 </div>
             </div>
         </>

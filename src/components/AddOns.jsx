@@ -73,10 +73,10 @@ const AddOns = () => {
           </div>
         </div>
       </motion.div>
-      <div className='w-[21.438rem] flex flex-row items-center justify-center bg-Alabaster h-[4.5rem] bottom-0 cursor-pointer lg:relative  lg:bg-none lg:w-full lg:pb-8 lg:px-24'>
-        <div className=' flex items-center  w-full justify-between  '>
-          <button className='text-Coolgray ' onClick={HandlePrev}>Go back</button>
-          <button className='font-ubuntu  font-bold bg-Marineblue h-10 w-24 text-White flex items-center justify-center mr-4 rounded hover:bg-Purplishblue duration-300  lg:mr-0' onClick={HandleNext}>Next Step</button>
+      <div className='bottom-0 translate-y-[8rem]  w-full px-4 flex flex-row items-center justify-center bg-White h-[4.5rem] cursor-pointer lg:translate-y-0 lg:relative  lg:bg-none lg:w-full lg:pb-8 lg:px-24'>
+        <div className=' my-6 flex items-center  w-full justify-between'>
+          <button className=' text-Coolgray ' onClick={HandlePrev}>Go back</button>
+          <button className=' font-ubuntu  font-bold bg-Marineblue h-10 w-24 text-White flex items-center justify-center rounded hover:bg-Purplishblue duration-300  lg:mr-0' onClick={HandleNext}>Next Step</button>
         </div>
       </div>
     </>

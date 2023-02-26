@@ -9,7 +9,7 @@ import Thanks from './components/Thanks'
 import { FormContext } from './context/FormContext'
 function App() {
 
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(3)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
