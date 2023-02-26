@@ -6,10 +6,9 @@
 - [Screenshot](#screenshot)
 - [Links](#links)
 - [My process](#my-process)
-
   - [Built with](#built-with)
-
 - [Author](#author)
+- [Run Project](#run)
 
 ### The challenge
 
@@ -35,7 +34,7 @@ Users should be able to:
 
 ## My process
 
-Hooks used (useState, useEffect, useRef, useContect)
+Hooks used (useState, useEffect, useRef, useContext)
 
 ### Built with
 
@@ -49,3 +48,9 @@ Hooks used (useState, useEffect, useRef, useContect)
 
 - Frontend Mentor - [@newton](https://www.frontendmentor.io/profile/newton-w)
 - LinkedIn - [@newton](https://www.linkedin.com/in/newton-warui/)
+
+## run
+# Run the Project
+
+    npm install
+    npm run dev
