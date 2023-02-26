@@ -9,7 +9,7 @@ import Thanks from './components/Thanks'
 import { FormContext } from './context/FormContext'
 function App() {
 
-  const [page, setPage] = useState(2)
+  const [page, setPage] = useState(0)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -134,24 +134,32 @@ function App() {
   const CheckBoxRef2 = useRef(null)
   const CheckBoxRef3 = useRef(null)
 
-  
-  const [onlinechecked, setOnlinechecked] = useState(false)
-  const [storagechecked, setStoragechecked] = useState(false)
-  const [customizechecked, setCustomize] = useState(false)
+
+  const [isChecked1, setIsChecked1] = useState(false)
+  const [isChecked2, setIsChecked2] = useState(false)
+  const [isChecked3, setIsChecked3] = useState(false)
+
+  const HandleCheck1 = () => {
+    setIsChecked1(isChecked1 => !isChecked1)
+  }
+  const HandleCheck2 = () => {
+    setIsChecked2(isChecked2 => !isChecked2)
+  }
+  const HandleCheck3 = () => {
+    setIsChecked3(isChecked3 => !isChecked3)
+  }
 
   const HandleCheckBox1 = () => {
     CheckBoxRef1.current.click()
-    setOnlinechecked(!onlinechecked)
-    
 
   }
   const HandleCheckBox2 = () => {
     CheckBoxRef2.current.click()
-    setStoragechecked(!storagechecked)
+
   }
   const HandleCheckBox3 = () => {
     CheckBoxRef3.current.click()
-    setCustomize(!customizechecked)
+
 
   }
 
@@ -160,7 +168,50 @@ function App() {
     storage: 2,
     customize: 2
   })
+  // Finish
+  const [plan, setPlan] = useState()
+  const [planPeriod, setPlanPeriod] = useState()
 
+  useEffect(() => {
+    period === "mo" ? setPlanPeriod("Monthly") : setPlanPeriod("Yearly")
+  }, [period])
+
+  const HandlePlan = (e) => {
+    e.preventDefault()
+    setPage(1)
+  }
+  useEffect(() => {
+    if (selected === monthly.arcade) {
+      setPlan("Arcade")
+    } else if (selected === monthly.advance) {
+      setPlan("Advance")
+    } else if (selected === monthly.pro) {
+      setPlan("Pro")
+    }
+  }, [Toggle])
+
+// Determining the total amount with or without addons
+  const [total, setTotal] = useState()
+
+  useEffect(() => {
+    if (isChecked1 && isChecked2 && isChecked3) {
+      setTotal(selected + addons.online + addons.storage + addons.customize)
+    } else if (isChecked1 && isChecked2 && !isChecked3) {
+      setTotal(selected + addons.online + addons.storage)
+    } else if (isChecked1 && !isChecked2 && isChecked3) {
+      setTotal(selected + addons.online + addons.customize)
+    } else if (!isChecked1 && isChecked2 && isChecked3) {
+      setTotal(selected + addons.storage + addons.customize)
+    } else if (isChecked1 && !isChecked2 && !isChecked3) {
+      setTotal(selected + addons.online)
+    } else if (!isChecked1 && isChecked2 && !isChecked3) {
+      setTotal(selected + addons.storage)
+    } else if (!isChecked1 && !isChecked2 && isChecked3) {
+      setTotal(selected + addons.customize)
+    } else {
+      setTotal(selected)
+    }
+  }, [Toggle,isChecked1, isChecked2, isChecked3])
 
   return (
 
@@ -169,9 +220,10 @@ function App() {
       HandlePrev, selectAdvance, selectPro, selectArcade, ArcadeStyle,
       ProStyle, AdvanceStyle, period, monthly, Toggle, istoggled, selected,
       addons, HandleCheckBox1, HandleCheckBox2, HandleCheckBox3,
-      CheckBoxRef1, CheckBoxRef2, CheckBoxRef3, onlinechecked,storagechecked,customizechecked
+      CheckBoxRef1, CheckBoxRef2, CheckBoxRef3,
+      isChecked1, isChecked2, isChecked3, HandleCheck1, HandleCheck2, HandleCheck3,
+      plan, planPeriod, HandlePlan, page, total
     }}>
-
 
       <Navigation PageDisplays={PageDisplays} page={page} />
     </FormContext.Provider>

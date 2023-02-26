@@ -1,12 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { FormContext } from '../context/FormContext'
+import {motion} from 'framer-motion'
+
 
 const PersonalInfo = () => {
     
 const {formData , setFormData, HandleNext} = useContext(FormContext)
 
     return (
-        <form onSubmit={HandleNext}>
+        <motion.form onSubmit={HandleNext}
+        // initial = {{opacity : 0}}
+        // animate ={{ opacity : 1}}
+        // transition ={{ duration : 1}}
+        >
             <div className='bg-White  flex flex-col  items-center w-[21.438rem] h-auto pb-8 px-[1.625rem] pt-9 rounded-lg lg:w-[39.875rem]  lg:pt-12 lg:px-12'>
                 <div className=' flex flex-col gap-5 pb-7'>
                     <h1 className=' font-bold text-Marineblue'>Personal Info</h1>
@@ -31,7 +37,7 @@ const {formData , setFormData, HandleNext} = useContext(FormContext)
                 <button className=' font-ubuntu  font-bold bg-Marineblue h-10 w-24 text-White flex items-center justify-center mr-4 rounded hover:bg-Purplishblue duration-300 lg:mr-24 ' type='submit'>Next Step</button>
             </div>
 
-        </form>
+        </motion.form>
     )
 }
 
