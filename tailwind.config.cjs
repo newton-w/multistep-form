@@ -16,12 +16,13 @@ module.exports = {
       Lightblue: "hsl(206, 94%, 87%)",
       Strawberryred: "hsl(354, 84%, 57%)",
       black : "rgb(0,0,0)",
+      White : "hsl(255, 100%, 100%)",
 
       // Neutral
       Coolgray: "hsl(231, 11%, 63%)",
       Magnolia: "hsl(217, 100%, 97%)",
       Alabaster: "hsl(231, 100%, 99%)",
-      White: "hsl(0, 0%, 100%)",
+      
     },
     fontFamily : {
       ubuntu : "'Ubuntu', sans-serif",
